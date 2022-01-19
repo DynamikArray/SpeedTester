@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^14.2.0",
+    "mongoose": "^6.1.7",
+    "node-schedule": "^2.1.0",
     "speedtest-net": "^2.2.0"
   }
 }
