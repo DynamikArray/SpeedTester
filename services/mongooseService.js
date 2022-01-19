@@ -1,4 +1,4 @@
-const { DB_NAME } = require("../config.js");
+const { DB_NAME } = require("../config/config.js");
 const mongoose = require("mongoose");
 
 var _db;
