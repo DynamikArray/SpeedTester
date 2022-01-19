@@ -15,10 +15,11 @@ dotEnv is not used yet as this only uses local mongo instance and no creds
 
 Speed tester library
 
-- install globally
 - speedtest module - https://github.com/ddsol/speedtest.net
-- accept liscense
+  - install globally - `npm install --global speedtest-net`
+  - accept liscense `speedtest-net --accept-license`
 
 Other Misc Stuff
 
 - configure Pm2 to run app
+  pm2 start application.config.js --env production/development

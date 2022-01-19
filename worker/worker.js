@@ -1,5 +1,5 @@
 const schedule = require("node-schedule");
-const { SPEEDTEST_INTERVAL } = require("../config/config.js");
+const { SPEEDTEST_INTERVAL, DEV_SPEEDTEST_INTERVAL } = require("../config/config.js");
 const { runSpeedTestLog } = require("../services/speedtestService.js");
 const mongooseService = require("../services/mongooseService.js");
 
@@ -7,4 +7,6 @@ const mongooseService = require("../services/mongooseService.js");
 mongooseService.connectToServer();
 
 //Every Two Minutes run this job
-const speedtestIntervalJob = schedule.scheduleJob(SPEEDTEST_INTERVAL, runSpeedTestLog);
+let speedtestInterval = SPEEDTEST_INTERVAL;
+if (process.env.NODE_ENV === "development") speedtestInterval = DEV_SPEEDTEST_INTERVAL;
+const speedtestIntervalJob = schedule.scheduleJob(speedtestInterval, runSpeedTestLog);

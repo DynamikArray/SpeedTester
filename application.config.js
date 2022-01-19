@@ -3,7 +3,12 @@ module.exports = {
     {
       name: "Speedtest Worker",
       script: "./worker/worker.js",
-      args: "",
+      env: {
+        NODE_ENV: "development",
+      },
+      env_production: {
+        NODE_ENV: "production",
+      },
     },
     /*
     {
