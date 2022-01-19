@@ -8,7 +8,7 @@ const speedtestService = {
     try {
       console.log("speedtestService | Running a speedtest");
 
-      const testResults = await speedTest({ acceptLicense: true });
+      const testResults = await speedTest();
       const newLog = new logsModel(testResults);
       const logSaveResult = await newLog.save();
 
