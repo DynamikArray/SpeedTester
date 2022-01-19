@@ -1,5 +1,5 @@
 const schedule = require("node-schedule");
-const { SPEEDTEST_INTERVAL } = require("../config.js");
+const { SPEEDTEST_INTERVAL } = require("../config/config.js");
 const { runSpeedTestLog } = require("../services/speedtestService.js");
 const mongooseService = require("../services/mongooseService.js");
 
