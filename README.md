@@ -2,8 +2,6 @@
 
 ##
 
-dotEnv is not used yet as this only uses local mongo instance and no creds
-
 ##
 
 ### Requirements
@@ -23,3 +21,9 @@ Other Misc Stuff
 
 - configure Pm2 to run app
   pm2 start application.config.js --env production/development
+
+Configuration Stuff for Pm2 - followed this guide for setting up PM2 and having it restart with windows
+
+- https://blog.cloudboost.io/nodejs-pm2-startup-on-windows-db0906328d75
+  And then to get pm2 running on restarts followed this guide
+- https://opensourcelibs.com/lib/pm2-installer
