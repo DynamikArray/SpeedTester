@@ -1,15 +1,22 @@
 const schedule = require("node-schedule");
 const { SPEEDTEST_INTERVAL, DEV_SPEEDTEST_INTERVAL } = require("../config/config.js");
+const { install } = require("../config/install.js");
 const { runSpeedTestLog } = require("../services/speedtestService.js");
 const mongooseService = require("../services/mongooseService.js");
 
-//Connect to mongoose
-mongooseService.connectToServer();
+async function worker() {
+  await install();
 
-//Every Two Minutes run this job
-let speedtestInterval = SPEEDTEST_INTERVAL;
-if (process.env.NODE_ENV == "development") speedtestInterval = DEV_SPEEDTEST_INTERVAL;
+  //Connect to mongoose
+  mongooseService.connectToServer();
 
-console.log("worker | " + process.env.NODE_ENV + " Mode Enabled | SpeedTest Interval=" + speedtestInterval);
+  //Every Two Minutes run this job
+  let speedtestInterval = SPEEDTEST_INTERVAL;
+  if (process.env.NODE_ENV == "development") speedtestInterval = DEV_SPEEDTEST_INTERVAL;
 
-const speedtestIntervalJob = schedule.scheduleJob(speedtestInterval, runSpeedTestLog);
+  console.log("worker | " + process.env.NODE_ENV + " Mode Enabled | SpeedTest Interval=" + speedtestInterval);
+
+  const speedtestIntervalJob = schedule.scheduleJob(speedtestInterval, runSpeedTestLog);
+}
+
+worker();
