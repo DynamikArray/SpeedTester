@@ -1,5 +1,6 @@
 module.exports = {
   apps: [
+    /*
     {
       name: "Speedtest Worker",
       script: "./worker/worker.js",
@@ -9,7 +10,8 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       },
-    },    
+    },
+    */
     {
       name: "SpeedTest Api",
       script: "./server/server.js",
@@ -20,6 +22,6 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       },
-    },    
+    },
   ],
 };
