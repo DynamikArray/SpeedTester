@@ -1,10 +1,18 @@
 //RENAME MORE ACCORDING TO SOMETHING LIKE SETTINGS?
 
-const config = {
+let config = {
   DB_NAME: "speedtester",
-  DB_URL: "host.docker.internal",
-  SPEEDTEST_INTERVAL: "*/15 * * * *",
-  DEV_SPEEDTEST_INTERVAL: "*/1 * * * *",
+  DB_URL: "localhost",
+  SPEEDTEST_INTERVAL: "*/5 * * * *",
+  RUN_SCHEDULED_JOB: true,
 };
+
+if (process.env.NODE_ENV == "production") {
+  config = {
+    ...config,
+    SPEEDTEST_INTERVAL: "*/15 * * * *",
+    DB_URL: "host.docker.internal",
+  };
+}
 
 module.exports = config;
