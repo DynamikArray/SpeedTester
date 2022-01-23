@@ -5,8 +5,6 @@ const { runSpeedTestLog } = require("../services/speedtestService.js");
 const mongooseService = require("../services/mongooseService.js");
 
 async function worker() {
-  
-
   //Connect to mongoose
   try {
     await install();
@@ -20,10 +18,9 @@ async function worker() {
     console.log("worker | " + process.env.NODE_ENV + " Mode Enabled | SpeedTest Interval=" + speedtestInterval);
 
     const speedtestIntervalJob = schedule.scheduleJob(speedtestInterval, runSpeedTestLog);
-
-    } catch (error) {
-      console.log(error);
-    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 worker();

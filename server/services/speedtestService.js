@@ -1,4 +1,5 @@
 const speedTest = require("speedtest-net");
+const { logger } = require("../util/logger");
 
 const mongooseService = require("../services/mongooseService.js");
 const logsModel = require("../models/logSchema.js");
@@ -6,17 +7,17 @@ const logsModel = require("../models/logSchema.js");
 const speedtestService = {
   runSpeedTestLog: async function () {
     try {
-      console.log("speedtestService | Running a speedtest");
+      logger.info("speedtestService | Running a speedtest");
 
       const testResults = await speedTest();
       const newLog = new logsModel(testResults);
       const logSaveResult = await newLog.save();
 
-      console.log(`speedtestService | LogsModel Saved | ${logSaveResult._id}`);
+      logger.info(`speedtestService | LogsModel Saved | ${logSaveResult._id}`);
     } catch (err) {
-      console.log(err.message);
+      logger.error("speedtestService | error=" + err.message);
     } finally {
-      console.log("speedtestService | Test Complete");
+      logger.info("speedtestService | Test Complete");
     }
   },
 };

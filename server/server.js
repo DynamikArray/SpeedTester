@@ -5,21 +5,23 @@ const serveStatic = require("serve-static");
 const morgan = require("morgan");
 const history = require("connect-history-api-fallback");
 
+//our winston instance
+const { logger } = require("./util/logger");
+
 //App and Logger
 const app = require("express")();
-app.use(morgan("tiny"));
+app.use(morgan("common"));
 
 //Http and Socket Servers
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, { serveClient: false });
 
 //Mongo
-const { logger } = require("./util/logger");
-const { models, connectDb } = require("./models/mongoose");
+const { models, connectDb } = require("./services/mongooseService");
 
 //Schedule
 const schedule = require("node-schedule");
-const { runSpeedTestLog } = require("../services/speedtestService.js");
+const { runSpeedTestLog } = require("./services/speedtestService.js");
 const { SPEEDTEST_INTERVAL, RUN_SCHEDULED_JOB } = require("../config/config.js");
 
 //Router
