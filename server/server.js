@@ -31,9 +31,9 @@ app.use(
     index: "/client/dist/index.html",
   })
 );
-router.use("/", serveStatic(path.join(__dirname, "/client/dist")));
+router.use("/", serveStatic(path.join(__dirname, "../client/dist")));
 router.get(/.*/, function (req, res) {
-  res.sendFile(path.join(__dirname, "/client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 logger.info(`Speedtester Starting in ${process.env.NODE_ENV} mode`);
