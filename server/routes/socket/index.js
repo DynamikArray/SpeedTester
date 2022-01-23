@@ -4,6 +4,6 @@ module.exports = (io, em) => {
   io.on("connection", function (socket) {
     logger.info("Speedtest Socket Connection established | socketId=" + socket.id);
 
-    require("./logStream")(socket, em);
+    require("./logStream/logStream")(socket, em);
   });
 };
