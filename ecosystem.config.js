@@ -9,13 +9,17 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       },
-    },
-    /*
+    },    
     {
-      name: "express api",
+      name: "SpeedTest Api",
       script: "./server/server.js",
       args: "rotate",
-    },
-    */
+      env: {
+        NODE_ENV: "development",
+      },
+      env_production: {
+        NODE_ENV: "production",
+      },
+    },    
   ],
 };
