@@ -25,8 +25,5 @@ module.exports = {
     },
     logLevel: "error",
   },
-
-  socketUrl: "http://localhost:8080",
-
   transpileDependencies: ["vuetify"],
 };

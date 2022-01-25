@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="primary" dark :maxHeight="50">
-    <div class="d-flex align-center"><h2 class="shadow">Speed Tester</h2></div>
+    <div class="d-flex align-center"><h3 class="shadow">Horizon Speed Tester</h3></div>
 
     <v-spacer></v-spacer>
 
