@@ -14,7 +14,7 @@ module.exports = {
     */
     {
       name: "SpeedTest Api",
-      script: "./server/server.js",
+      script: "./server/index.js",
       args: "rotate",
       env: {
         NODE_ENV: "development",
