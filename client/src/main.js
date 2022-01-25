@@ -9,6 +9,12 @@ import("./plugins/vueSocketIo");
 import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 
+Vue.filter("convertToMegabits", (bytes) => {
+  const megaBits = parseFloat(bytes / 125000);
+  const formatted = +megaBits.toFixed(2);
+  return formatted;
+});
+
 Vue.config.productionTip = false;
 
 new Vue({

@@ -24,7 +24,7 @@ export default {
 .shadow {
   text-shadow: #000 2px 2px 1px;
 }
-.shadow-small {
+.shadow-sm {
   text-shadow: #000 1px 1px 0px;
 }
 </style>
