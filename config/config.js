@@ -12,7 +12,7 @@ let config = {
 if (process.env.NODE_ENV == "production") {
   config = {
     ...config,
-    DB_URL: "host.docker.internal",
+    DB_URL: "mongo",
     SPEEDTEST_INTERVAL: "*/15 * * * *",
     RUN_SCHEDULED_JOB: true,
   };

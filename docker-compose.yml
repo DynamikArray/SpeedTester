@@ -10,8 +10,8 @@ services:
              - mongo
        mongo:
              container_name: mongo
-             image: mongo
+             image: arm64v8/mongo:4.4.12-focal
              volumes:
                - ./data:/data/db
              ports:
-               - '27018:27017'
+               - '27017:27017'
