@@ -5,13 +5,14 @@ services:
            restart: always
            build: .
            ports:
-             - "8080:8080"
+             - "8000:8000"
            external_links:
              - mongo
        mongo:
-             container_name: mongo
-             image: arm64v8/mongo:4.4.12-focal
-             volumes:
-               - ./data:/data/db
-             ports:
-               - '27017:27017'
+          container_name: mongo
+          restart: always
+          image: ${MONGO_IMAGE_NAME}
+          volumes:
+            - ./data:/data/db
+          ports:
+            - '27017:27017'
