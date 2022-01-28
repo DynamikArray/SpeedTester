@@ -1,13 +1,11 @@
 version: "3"
 services:
   speedtester:
-    container_name: speedtester    
-    environment:          
-      - PORT=${APP_PORT}      
+    container_name: speedtester   
     restart: always
     build: .
     ports:
-      - "${HTTP_PORT}:${APP_PORT}"
+      - "${HTTP_PORT}:3000"
     external_links:
       - mongo
   mongo:

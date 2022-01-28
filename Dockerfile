@@ -18,7 +18,7 @@ COPY . .
 WORKDIR /usr/src/app/client
 RUN npm install && npm run build
 
-EXPOSE 8080
+EXPOSE 3000
 
 WORKDIR /usr/src/app
 CMD [ "pm2-runtime", "ecosystem.config.js", "--env=production"]
