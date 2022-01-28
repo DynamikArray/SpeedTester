@@ -23,7 +23,7 @@ connectDb().then(async () => {
   await install();
   
   //Start Server
-  const port = process.env.PORT || 8000;
+  const port = 8080;
   server.listen(port);
 
   //setup Events Emitter for sockets
