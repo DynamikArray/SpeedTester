@@ -54,12 +54,3 @@ const speedtestService = {
 };
 
 module.exports = speedtestService;
-
-/**
-
-const { convertToMegabits } = require("../util/utilities.js");
-
-async function handleProgress(testEvent) {
-  console.log(testEvent);
-}
- */
