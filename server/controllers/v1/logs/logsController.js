@@ -9,7 +9,7 @@ async function home(req, res, next) {
       await SpeedTestLogs.getLatestResults(),
     ]);
     
-    res.send({stats: results[0], results: results[1]});
+    res.send({stats: results[0][0], results: results[1]});
     //
   } catch (e) {
     //correctly json handle this error message

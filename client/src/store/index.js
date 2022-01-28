@@ -3,7 +3,14 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import api from "./api";
+import logs from "./logs";
+
 export default new Vuex.Store({
+  modules: {
+    api,
+    logs,
+  },
   state: {
     socketStatus: false,
     socketStatusMessage: false,
