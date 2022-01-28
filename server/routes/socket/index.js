@@ -1,4 +1,6 @@
 const { logger } = require("../../util/logger");
+const logsModel = require("../../models/logSchema.js");
+
 
 const speedtestService = require("../../services/speedtestService");
 
@@ -14,4 +16,17 @@ module.exports = (io, em) => {
 
     require("./liveTest/liveTest")(socket, em);
   });
+
+
+  //Handle saving new log results?
+  //This needs a better events patter ?
+  em.on("testResults", async function (testResults) {            
+    try {
+      const newLog = new logsModel(testResults);
+      const logSaveResult = await newLog.save();        
+    } catch (error) {
+      logger.error("liveTest | testResults | error=" + error.message);
+    }   
+  });
+
 };
