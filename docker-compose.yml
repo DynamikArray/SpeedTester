@@ -1,7 +1,7 @@
 version: "3"
 services:
   speedtester:
-    container_name: speedtester   
+    container_name: dynamikarray/speedtester:latest
     restart: always
     build: .
     ports:
