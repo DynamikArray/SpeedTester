@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
+  <v-container fluid class="px-3">
+    <v-row class="text-center" dense>
       <v-col cols="12">
         <SpeedtestWrapper />
       </v-col>
