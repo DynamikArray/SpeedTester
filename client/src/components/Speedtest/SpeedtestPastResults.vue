@@ -1,16 +1,20 @@
 <template>
-  <div>
-    <div class="text-h4">Past Results</div>
-    <div class="text-body">
-      {{ stats.avgDownload | convertToMegabits }}
-    </div>
+  <div class="SpeedTestPastResults">
+    <div class="text-h4 mb-1">Past Results</div>
+    <SpeedTestDataTable :items="results" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+
+import SpeedTestDataTable from "./Datatable/SpeedTestDataTable";
+
 export default {
   name: "SpeedtestPastResults",
+  components: {
+    SpeedTestDataTable,
+  },
   computed: {
     ...mapGetters({
       stats: "logs/getStats",

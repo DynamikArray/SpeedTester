@@ -1,9 +1,9 @@
 <template>
-  <v-container class="speedtestWrapper">
-    <v-row>
+  <v-container fluid class="speedtestWrapper pa-0">
+    <v-row dense>
       <v-col>
-        <div class="d-flex flex-column align-center">
-          <div class="my-3 text-h3">Test Our Internet Speed</div>
+        <div class="d-flex flex-column align-start">
+          <div class="text-h5">Run Speed Test</div>
 
           <div v-if="isRunning && speedTestEventData">
             <SpeedtestProgressCard

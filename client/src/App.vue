@@ -20,7 +20,6 @@ export default {
     //
   }),
   mounted() {
-    console.log(this.$store);
     this.$store.dispatch(`logs/${LOGS_FETCH_RECENT}`, null, { root: true });
   },
 };
