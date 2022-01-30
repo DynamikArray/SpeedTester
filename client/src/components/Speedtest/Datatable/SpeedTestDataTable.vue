@@ -2,7 +2,7 @@
   <div>
     <v-data-table ref="dtSpeedTestResults" :items="items" :headers="headers">
       <template v-slot:item.timestamp="{ item }">
-        {{ item.timestamp | formatDateTime }}
+        <div class="text-caption">{{ item.timestamp | formatDateTime }}</div>
       </template>
 
       <template v-slot:item.download="{ item }">
@@ -20,11 +20,11 @@
       </template>
 
       <template v-slot:item.interface.internalIp="{ item }">
-        {{ item.interface.internalIp }}
+        <div class="text-caption">{{ item.interface.internalIp }}</div>
       </template>
 
       <template v-slot:item.interface.macAddr="{ item }">
-        {{ item.interface.macAddr }}
+        <div class="text-caption">{{ item.interface.macAddr }}</div>
       </template>
 
       <template v-slot:item.server="{ item }">

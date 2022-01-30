@@ -4,6 +4,8 @@ module.exports = {
   publicPath: "/",
   outputDir: "dist",
 
+  runtimeCompiler: true,
+
   devServer: {
     headers: { "Access-Control-Allow-Origin": "*" },
     contentBase: path.join(__dirname, "dist"),

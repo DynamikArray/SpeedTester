@@ -1,11 +1,28 @@
 <template>
-  <div class="d-flex align-center justify-center">
-    <v-card color="secondary darken-4 pa-5" rounded="10">
+  <div class="speedTestProgressCard align-center justify-center">
+    <v-card color="secondary darken-4 pa-1" rounded="10">
       <h1 class="text-h3">{{ progressTypeLabel }}</h1>
-      <h1 class="text-h1">
+
+      <div class="">
+        <VueSpeedometer
+          :value="progressSpeedValueForNeedle"
+          :minValue="0"
+          :maxValue="1000"
+          :width="300"
+          :height="170"
+          needleColor="#EEE"
+          textColor="#EEE"
+          :needleHeightRatio="0.7"
+          :ringWidth="30"
+          valueTextFontSize="0px"
+          labelFontSize="14px"
+        />
+      </div>
+
+      <div class="text-h3 pt-0 mt-0">
         {{ progressSpeedValue | convertToMegabits
-        }}<span class="text-h3 mx-4">Mbps</span>
-      </h1>
+        }}<span class="text-h5 mx-4">Mbps</span>
+      </div>
 
       <div>
         <h5 class="mx-3">Time Remaining:</h5>
@@ -23,15 +40,27 @@
 </template>
 
 <script>
+import VueSpeedometer from "vue-speedometer";
 export default {
   name: "SpeedtestProgressCard",
+  components: {
+    VueSpeedometer,
+  },
   props: {
     progressEvent: {
       type: [Object, Boolean],
     },
   },
-  components: {},
+  data: () => ({}),
   computed: {
+    isUpload() {
+      if (this.progressEvent.type == "upload") return true;
+      return false;
+    },
+    isDownload() {
+      if (this.progressEvent.type == "download") return true;
+      return false;
+    },
     progressTimeStamp() {
       return this.progressEvent.timestamp;
     },
@@ -42,16 +71,19 @@ export default {
       return this.progressEvent.progress * 100;
     },
     progressSpeedValue() {
-      if (this.progressEvent.type == "upload") {
-        return this.progressEvent.upload.bandwidth;
-      }
-      if (this.progressEvent.type == "download") {
-        return this.progressEvent.download.bandwidth;
-      }
+      if (this.isUpload) return this.progressEvent.upload.bandwidth;
+      if (this.isDownload) return this.progressEvent.download.bandwidth;
       return 0;
+    },
+    progressSpeedValueForNeedle() {
+      return this.$options.filters.convertToMegabits(this.progressSpeedValue);
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style>
+.speedTestProgressCard {
+  max-width: 400px;
+}
+</style>

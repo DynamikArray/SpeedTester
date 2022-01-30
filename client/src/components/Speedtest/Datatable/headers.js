@@ -20,6 +20,7 @@ export const headers = [
     align: "center",
     width: "180px",
   },
+  /*
   {
     text: "ISP",
     value: "isp",
@@ -27,6 +28,7 @@ export const headers = [
     align: "center",
     width: "100px",
   },
+  */
   {
     text: "Internal IP",
     value: "interface.internalIp",

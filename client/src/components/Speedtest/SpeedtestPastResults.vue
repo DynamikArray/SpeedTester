@@ -1,6 +1,6 @@
 <template>
   <div class="SpeedTestPastResults">
-    <div class="text-h4 mb-1">Past Results</div>
+    <div class="text-h4 mb-1 text-left">Past Results</div>
     <SpeedTestDataTable :items="results" />
   </div>
 </template>

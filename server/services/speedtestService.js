@@ -1,7 +1,6 @@
 const speedTest = require("speedtest-net");
 const { logger } = require("../util/logger");
 
-const mongooseService = require("../services/mongooseService.js");
 const logsModel = require("../models/logSchema.js");
 
 const events = require("events");
