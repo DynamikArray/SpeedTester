@@ -13,7 +13,7 @@ if (process.env.NODE_ENV == "production") {
   config = {
     ...config,
     DB_URL: "mongo",
-    SPEEDTEST_INTERVAL: "* */2 * * *",
+    SPEEDTEST_INTERVAL: "0 */2 * * *",
     RUN_SCHEDULED_JOB: true,
   };
 }
