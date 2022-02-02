@@ -13,8 +13,7 @@ services:
     restart: always
     image: ${MONGO_IMAGE_NAME}
     volumes:
-      - ./dbdata:/data/db
+      - ~/mongo/data:/data/db
     ports:
       - '27017:27017'
-volumes: 
-  dbdata:
+    
