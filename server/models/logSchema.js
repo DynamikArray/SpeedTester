@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { logger } = require("../util/logger");
 
 const LogSchema = new mongoose.Schema({
   timestamp: {
@@ -76,5 +77,35 @@ const LogSchema = new mongoose.Schema({
 
 //Make this collection singular later?
 const Log = mongoose.model("Log", LogSchema);
+
+Log.getLatestResults = async function () {
+  try {
+    const results = await Log.find().sort({_id: -1}).limit(500);
+    return results; 
+  } catch (error) {
+    logger.error("logSchema | getLatestResults | Error=", error.message);
+  }
+}
+
+Log.getCurrentStats = async function () {
+  try {
+    const results = await Log.aggregate([
+      {$sort: {timestamp: -1}},      
+      {
+        $group:
+        {
+          "_id": null,
+          avgDownload: {$avg: "$download.bandwidth"} ,
+          avgUpload: {$avg: "$upload.bandwidth"}  
+        }
+      }      
+    ]);
+    return results; 
+  } catch (error) {
+    logger.error("logSchema | getCurrentStats | Error=", error);
+  }
+}
+
+
 
 module.exports = Log;

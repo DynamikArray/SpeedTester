@@ -4,8 +4,8 @@
 let config = {
   DB_NAME: "speedtester",
   DB_URL: "localhost",
-  SPEEDTEST_INTERVAL: "*/1 * * * *",
-  RUN_SCHEDULED_JOB: false,
+  SPEEDTEST_INTERVAL: "*/30 * * * *",
+  RUN_SCHEDULED_JOB: true,
 };
 
 //Production Overrides
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV == "production") {
   config = {
     ...config,
     DB_URL: "mongo",
-    SPEEDTEST_INTERVAL: "*/15 * * * *",
+    SPEEDTEST_INTERVAL: "0 */2 * * *",
     RUN_SCHEDULED_JOB: true,
   };
 }

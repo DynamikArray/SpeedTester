@@ -9,6 +9,8 @@
 
 <script>
 import Header from "@/components/Layout/Header";
+import { LOGS_FETCH_RECENT } from "@/store/store.constants.js";
+
 export default {
   name: "App",
   components: {
@@ -17,6 +19,9 @@ export default {
   data: () => ({
     //
   }),
+  mounted() {
+    this.$store.dispatch(`logs/${LOGS_FETCH_RECENT}`, null, { root: true });
+  },
 };
 </script>
 

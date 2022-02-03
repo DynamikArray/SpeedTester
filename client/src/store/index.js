@@ -3,7 +3,16 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import api from "./api";
+import logs from "./logs";
+
+import { LOGS_FETCH_RECENT } from "@/store/store.constants.js";
+
 export default new Vuex.Store({
+  modules: {
+    api,
+    logs,
+  },
   state: {
     socketStatus: false,
     socketStatusMessage: false,
@@ -75,6 +84,10 @@ export default new Vuex.Store({
     socket_startSpeedTest({ commit }) {
       commit("clearSpeedTestResults");
       this._vm.$socket.client.emit("startSpeedTest", { start: true });
+    },
+    socket_finishedSpeedtestEvent({ dispatch }) {
+      //commit("SOCKET_FINISHED_SPEEDTEST_EVENT", data);
+      dispatch(`logs/${LOGS_FETCH_RECENT}`);
     },
   },
 });
